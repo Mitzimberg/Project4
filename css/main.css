@@ -1,5 +1,74 @@
-/* Place CSS styles here */
-body{
-    /*background-color: yellowgreen;*/
-    background-image: url(https://www.thedrive.com/wp-content/uploads/images-by-url-td/content/2020/06/civic-lead.jpg?w=1920);
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fbe0e0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: -20px;
+}
+
+.tab {
+    background-color: #ffebeb;
+    color: #d9534f;
+    padding: 15px 30px;
+    cursor: pointer;
+    position: relative;
+    margin: 0 4px;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab:hover {
+    background-color: #832318;
+}
+
+.tab.active {
+    background-color: #fff;
+    color: #d9534f;
+}
+
+main {
+    padding: 20px;
+    position: relative;
+    background-color: #fff;
+}
+
+.page-content {
+    display: none;
+    padding: 20px;
+    background-color: #ffebeb;
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+}
+
+.page-content.active {
+    display: block;
 }

@@ -22,18 +22,73 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
-  <!-- Place your site's HTML here -->
-   <h1 
-   style="color: red;
-   font-size: 52pt;">Blake's First Website</h1>
-   
-  <p
-  style="border-color: blue;
-  color: brown;
-  font-size: small;">Hey buddy</p>
-  
-  <script src="js/main.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">Logo</div>
+            <div class="title">mitzimberg</div>
+        </div>
+        <nav class="tabs">
+            <a href="#home" class="tab active">Home</a>
+            <a href="#about" class="tab">About</a>
+            <a href="#work" class="tab">Work</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="home" class="page-content active">
+            <h1>Home</h1>
+            <p>Welcome to the home page.</p>
+        </section>
+        
+        <section id="about" class="page-content">
+            <h1>About</h1>
+            <p>Learn more about us on this page.</p>
+        </section>
+        
+        <section id="work" class="page-content">
+            <h1>Work</h1>
+            <p>Check out our work here.</p>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
+
+                this.classList.add('active');
+                document.querySelector(this.getAttribute('href')).classList.add('active');
+            });
+        });
+    </script>
+</body>
 </html>
