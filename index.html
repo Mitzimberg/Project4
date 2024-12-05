@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Responsive Layouts</title>
+  <title>Mitzimberg</title>
   <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,29 +30,13 @@
     <title>My Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<!--ANOTHER DISCLAIMER, I ONLY USED IDS BECAUSE I COULDNT GET THE DAMN CODE TO WORK, BUT I WAS CAREFUL SO ITS OKAY-->
 <body>
     <header>
         <div class="header-left">
-            <div class="logo">Logo</div>
-            <div class="title">mitzimberg</div>
+            <img src="img/LogoBackground.png" alt="logo" class="logo">
+            <div class="title">Mitzimberg</div>
         </div>
         <nav class="tabs">
             <a href="#home" class="tab active">Home</a>
@@ -64,31 +48,139 @@
     <main>
         <section id="home" class="page-content active">
             <h1>Home</h1>
-            <p>Welcome to the home page.</p>
         </section>
         
         <section id="about" class="page-content">
-            <h1>About</h1>
-            <p>Learn more about us on this page.</p>
+            <h2>About</h2>
         </section>
         
         <section id="work" class="page-content">
-            <h1>Work</h1>
-            <p>Check out our work here.</p>
+            <div class="work-tab">
+                <div class="left-half">
+                    <div class="description">
+                        <h3 id="description-title">Picture Description</h3>
+                        <p id="description-text">Click on a picture to see its description.</p>
+                    </div>
+                    <div class="commission">
+                        <h4>Commission</h4>
+                        <p>Signup here!</p>
+                        <form id="commission-form">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                <div class="showcase-box active">
+                    <div class="showcase">
+                        <img src="img/Image1.jpg" alt="An artwork of a parrot, my father Cody's favorite bird" data-name="Cody">
+                        <img src="img/Image2.jpg" alt="An artwork of a humming-bird, the highlight of my Sophomore year in High School" data-name="Sophomore">
+                        <img src="img/Image3.jpg" alt="An artwork of a toucan, the highlight of my Freshman year in High School" data-name="Freshman">
+                        <img src="img/Image4.jpg" alt="An artwork of a blue-jay, my grandfather's favorite bird" data-name="Robert">
+                        <img src="img/Image5.jpg" alt="An artwork of a peacock, the highlight of my Senior year in High School" data-name="Senior">
+                        <img src="img/Image6.jpg" alt="An artwork of a small-round bird, my second favorite bird I've made" data-name="Andon">
+                        <img src="img/Image7.jpg" alt="An artwork of a blue-orange bird, my cousin Bryce's commission" data-name="Bryce">
+                        <img src="img/Image8.jpg" alt="An artwork of a much more detailed blue-orange bird, my favorite artwork I've made" data-name="Blake">
+                        <img src="img/Image9.jpg" alt="An artwork of a dog in a suit & tie, satire image of my dog Curtis" data-name="Curtis">
+                        <img src="img/Image10.jpg" alt="An artwork of the LSU tiger, my first real artwork using marker" data-name="Experimenting">
+                        <img src="img/Image11.jpg" alt="An artwork of a portrait of a white man, part of my journey of learning markers" data-name="Experiment1">
+                        <img src="img/Image12.jpg" alt="An artwork of Kamakawiwo'ole, part of my journey of learning markers" data-name="Experiment2">
+                        <img src="img/Image13.jpg" alt="An artwork of a man yelling, part of my journey of learning markers" data-name="Experiment3">
+                        <img src="img/Image14.jpg" alt="An artwork of many objects collage style 1, still life done for my freshman year of LSU" data-name="Still-life">
+                        <img src="img/Image15.jpg" alt="An artwork of many objects collage style 2, still life done for my freshman year of LSU" data-name="Still-life 2">
+                        <img src="img/Image16.jpg" alt="An artwork of many objects collage style 3, final project done for my freshman year of LSU" data-name="Still Life 3">
+                        <img src="img/Image17.jpg" alt="An artwork of a golem fighting a warrior, based from my dungeons and dragons campaigns" data-name="Printmaking">
+                        <img src="img/Image18.jpg" alt="An artwork of cerebus, another artwork from my dungeons and dragons campaigns" data-name="Printmaking 2">
+                    </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+    <div id="thankYouPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Thank You!</h3>
+            <p>Your submission has been received.</p>
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
 
+
+
+
+
+    <!--BEFORE YOU GET MAD AT ME, I DONT KNOW HOW TO DO JAVA SCRIPT LOL, EVERY SOLUTION I FOUND TO MY BROKEN ASS SCRIPT IS PUTTING IT IN HTML-->
+    <script>
+        const form = document.querySelector('form');
+        const submitButton = form.querySelector('button[type="submit"]');
+    
+        form.addEventListener('submit', (event) => {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitted';
+        });
+    </script>
+    <script>
+        const popup = document.getElementById('thankYouPopup');
+        const closeButton = document.getElementById('closePopup');
+    
+        function showPopup() {
+            popup.style.display = 'flex';
+        }
+    
+        closeButton.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            showPopup();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const showcaseImages = document.querySelectorAll('.showcase img');
+    
+            const descriptionHeading = document.querySelector('.description h3');
+            const descriptionText = document.getElementById('description-text');
+    
+            showcaseImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    const dataName = image.dataset.name;
+                    const altText = image.alt;
+    
+                    if (descriptionHeading && descriptionText) {
+                        descriptionHeading.textContent = dataName;
+                        descriptionText.textContent = altText;
+                    } else {
+                        console.error('Description elements not found');
+                    }
+                });
+            });
+        });
+    </script>
     <script>
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
+                document.querySelectorAll('.showcase-box').forEach(box => box.classList.remove('active'));
 
                 this.classList.add('active');
-                document.querySelector(this.getAttribute('href')).classList.add('active');
+                const targetSection = document.querySelector(this.getAttribute('href'));
+                targetSection.classList.add('active');
+
+                if (this.getAttribute('href') === '#work') {
+                    document.querySelector('.showcase-box').classList.add('active');
+                }
             });
         });
     </script>
 </body>
-</html>
