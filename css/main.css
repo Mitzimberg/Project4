@@ -1,14 +1,17 @@
-body {
-    font-family: "Source Sans 3", sans-serif;
-    font-weight: 700;
-    color: #1b1b1b;
+body, html {
+    overflow-x: hidden;
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: "Lemon Milk", serif;
     font-weight: 800;
     font-size: 28px;
-    color: #1b1b1b;
+    color: #d9534f;
+}
+p {
+    font-family: "Lemon Milk", serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #d9534f;
 }
 
 header {
@@ -16,22 +19,19 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #d9534f;
-    color: #fff;
+    color: #ffebeb;
     padding: 10px 20px;
 }
-
 .header-left {
     display: flex;
     align-items: center;
 }
-
 .logo {
 height:auto;
 max-width: 50px;
 display: block;
 margin-right: 20px;
 }
-
 .title {
     font-size: 2rem;
     font-family: "Lemon Milk", serif;
@@ -44,7 +44,6 @@ margin-right: 20px;
     position: relative;
     margin-bottom: -28px;
 }
-
 .tab {
     background-color: #ffebeb;
     color: #d9534f;
@@ -55,11 +54,9 @@ margin-right: 20px;
     border-radius: 5px 5px 0 0;
     transition: background-color 0.3s, color 0.3s;
 }
-
 .tab:hover {
     background-color: #832318;
 }
-
 .tab.active {
     background-color: #fff;
     color: #d9534f;
@@ -70,12 +67,88 @@ main {
     position: relative;
     background-color: #fff;
 }
-
 .page-content {
     display: none;
 }
 .page-content.active {
     display: block;
+}
+
+.centered-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 75vh;
+    position: relative;
+    padding-left: 15%;
+    width: 100%;
+    margin: 0 auto;
+}
+.line {
+    font-size: 6rem;
+    margin: 0;
+    text-align: left;
+}
+.top-line {
+    font-size: 5rem;
+}
+.navigation-reminder {
+    position: fixed;
+    top: 90px;
+    right: 110px;
+    margin: 10px;
+    z-index: 1000;
+}
+
+.scroll-arrow {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #555;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+}
+.scroll-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.scroll-container {
+    position: relative;
+    height: 300vh;
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.hidden-text {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    max-width: 350px;
+}
+.hidden-text.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.text-one {
+    top: 20%;
+    left: 20%;
+}
+.text-two {
+    top: 30%;
+    right: 15%;
+}
+.text-three {
+    top: 55%;
+    left: 15%;
+}
+.text-four {
+    top: 70%;
+    right: 10%;
 }
 
 .work-tab {
@@ -116,7 +189,7 @@ main {
 
 .showcase-box {
     display: none;
-    width: 45%;
+    width: 40%;
     position: fixed;
     top: 95px;
     right: 0;
@@ -176,4 +249,25 @@ button {
 }
 button:hover {
     background-color: #832318;
+}
+
+#experiences {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    top: 25%;
+}
+.social-icons {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+.social-icons:hover {
+    transform: scale(1.1);
 }

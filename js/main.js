@@ -60,3 +60,48 @@ images.forEach(img => {
         descriptionText.textContent = altText || "No Description Available";
     });
 });
+
+let scrollArrow = document.querySelector(".scroll-arrow");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+        scrollArrow.classList.add("hidden");
+    }
+});
+
+document.addEventListener("scroll", () => {
+    const scrollContainer = document.querySelector(".scroll-container");
+    const line = document.querySelector(".line");
+    const texts = document.querySelectorAll(".hidden-text");
+    const images = document.querySelectorAll(".background-image");
+
+    const containerTop = scrollContainer.getBoundingClientRect().top;
+    const containerHeight = scrollContainer.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    const scrollProgress = Math.min(Math.max((viewportHeight - containerTop) / containerHeight, 0), 1);
+
+    const lineHeight = scrollProgress * 100;
+    line.style.height = `${lineHeight}%`;
+
+    texts.forEach((text, index) => {
+        const revealStart = index * 0.5;
+        const revealEnd = revealStart + 0.9;
+
+        if (scrollProgress >= revealStart && scrollProgress <= revealEnd) {
+            const localProgress = (scrollProgress - revealStart) / (revealEnd - revealStart);
+            text.style.opacity = localProgress;
+            text.style.transform = `translateY(${20 * (1 - localProgress)}px)`;
+
+            images[index].style.opacity = localProgress; // Show images with the same progress
+        } else if (scrollProgress > revealEnd) {
+            text.style.opacity = 1;
+            text.style.transform = "translateY(0)";
+            images[index].style.opacity = 1; // Fully visible after the reveal range
+        } else {
+            text.style.opacity = 0;
+            text.style.transform = "translateY(20px)";
+            images[index].style.opacity = 0; // Hidden before the reveal range
+        }
+    });
+});
